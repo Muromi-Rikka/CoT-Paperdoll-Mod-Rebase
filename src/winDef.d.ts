@@ -1,3 +1,5 @@
+import type { PaperDollSystem } from "./scriptFileList/utils/paperDollClass.ts";
+
 export {};
 
 declare global {
@@ -18,16 +20,19 @@ declare global {
     get: (name: string) => any;
   };
 
-  interface Window {
-    aaaaabbbbbccccc: (key: string) => string;
-    ModWebpackExampleTs_patchLinkButton: (
-      MacroRef: typeof Macro,
-      ScriptingRef: typeof Scripting,
-    ) => void;
-  }
-
   const Wikifier: WikifierAPI;
   const Scripting: ScriptingAPI;
+
+  const setup: {
+    Paperdoll: {
+      paperdollPC: (HTMLCanvasElement) => Promise<PaperDollSystem>;
+    };
+    clothes: Record<string, any>;
+    color_table: Record<string, string | { background: string;border: string;shadow: string;text: string;text_shadow: string }>;
+  };
+  const V: {
+    pc: any;
+  };
 
 }
 
